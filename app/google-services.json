@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371913750869",
+    "project_id": "gettouchautomobiles",
+    "storage_bucket": "gettouchautomobiles.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371913750869:android:04b6f8d79a39dc091597dc",
+        "android_client_info": {
+          "package_name": "com.example.gta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwFH4gG0mJx93bzCP4OycGuN6wQUACuJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
