@@ -13,6 +13,18 @@
         android:theme="@style/Theme.GTA"
         tools:targetApi="35">
         <activity
+            android:name=".view.activities.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.activities.IntroActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activities.MainActivity"
             android:exported="true">
             <intent-filter>
