@@ -5,27 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.gta.R
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.example.gta.data.model.Car
 
 class HomeFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val carList = mutableListOf<Car>().apply {
+            add(Car("1", "쏘나타 디 엣지", "https://www.hyundai.com/contents/repn-car/side-45/main-sonata-the-edge-25my-45side.png"))
+        }
+
+        val textViewCar = view.findViewById<TextView>(R.id.textViewCar)
+        textViewCar.text = carList[0].name
+
+        val carSelector = view.findViewById<LinearLayout>(R.id.carSelector)
+        carSelector.setOnClickListener {
+            Toast.makeText(context, "car selector", Toast.LENGTH_SHORT).show()
+        }
+
+        val buttonAdd = view.findViewById<ImageView>(R.id.imageViewAdd)
+        buttonAdd.setOnClickListener {
+            Toast.makeText(context, "car add", Toast.LENGTH_SHORT).show()
+        }
+
+        // 차량 이미지
+        val imageViewCar = view.findViewById<ImageView>(R.id.imageViewCar)
+        context?.let {
+            Glide.with(it)
+                .load(carList[0].image)
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.error)
+                .into(imageViewCar)
+        }
+
+        // 제어 더보기
+        val textViewControl = view.findViewById<TextView>(R.id.textViewControl)
+        textViewControl.setOnClickListener {
+            ControlBottomSheet().show(parentFragmentManager, ControlBottomSheet.TAG)
+        }
+
+        return view
     }
 }
