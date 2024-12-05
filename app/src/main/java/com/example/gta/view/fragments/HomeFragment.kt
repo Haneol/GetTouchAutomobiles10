@@ -47,6 +47,12 @@ class HomeFragment : Fragment() {
                 .into(imageViewCar)
         }
 
+        // 제어 더보기
+        val textViewControl = view.findViewById<TextView>(R.id.textViewControl)
+        textViewControl.setOnClickListener {
+            ControlBottomSheet().show(parentFragmentManager, ControlBottomSheet.TAG)
+        }
+
         return view
     }
 }
