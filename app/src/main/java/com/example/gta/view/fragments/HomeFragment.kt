@@ -73,9 +73,11 @@ class HomeFragment : Fragment(),
                     }
                 },
                 onFailure = { exception ->
-                    Toast.makeText(context,
-                        "차량 정보를 불러오는데 실패했습니다: ${exception.message}",
-                        Toast.LENGTH_SHORT).show()
+                    if (Firebase.auth.currentUser != null) {
+                        Toast.makeText(context,
+                            "차량 정보를 불러오는데 실패했습니다: ${exception.message}",
+                            Toast.LENGTH_SHORT).show()
+                    }
                     showContent(false)
                 }
             )
