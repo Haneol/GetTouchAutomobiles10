@@ -104,7 +104,7 @@
 
                     <!-- Title TextView -->
                     <TextView
-                        android:id="@+id/titleTextView"
+                        android:id="@+id/titleTextView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="엔진오일 관련상담"
@@ -113,7 +113,7 @@
 
                     <!-- Date TextView -->
                     <TextView
-                        android:id="@+id/dateTest"
+                        android:id="@+id/dateTest2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2024-12-04"
@@ -123,7 +123,7 @@
 
                 <!-- Icon -->
                 <ImageView
-                    android:id="@+id/menuIcon"
+                    android:id="@+id/menuIcon2"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"

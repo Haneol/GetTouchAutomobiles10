@@ -1,6 +1,7 @@
 package com.example.gta.view.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -13,10 +14,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.gta.R
 import com.example.gta.data.model.ChatMessage
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class ChatActivity : AppCompatActivity() {
-    private val database = FirebaseDatabase.getInstance() // Firebase Database 초기화
+    private val database = FirebaseDatabase.getInstance("https://gettouchautomobiles-default-rtdb.asia-southeast1.firebasedatabase.app/")
     private val chatRef = database.reference.child("chats") // "chats" 노드 참조
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +55,12 @@ class ChatActivity : AppCompatActivity() {
     // Firebase에 메시지 저장
     private fun sendMessageToFirebase(chatMessage: ChatMessage) {
         chatRef.push().setValue(chatMessage)
+            .addOnSuccessListener {
+                Log.d("Firebase", "Message sent successfully: ${chatMessage.message}")
+            }
+            .addOnFailureListener { exception ->
+                Log.e("Firebase", "Failed to send message: ${exception.message}")
+            }
     }
 
     // Firebase에서 메시지 읽기
@@ -73,6 +84,7 @@ class ChatActivity : AppCompatActivity() {
 
             override fun onCancelled(error: DatabaseError) {
                 // 에러 처리
+                Log.e("Firebase", "Failed to load messages: ${error.message}")
             }
         })
     }
@@ -88,5 +100,4 @@ class ChatActivity : AppCompatActivity() {
         // 컨테이너에 추가
         container.addView(newMessageView)
     }
-}
 }
