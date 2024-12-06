@@ -16,6 +16,8 @@ import com.google.firebase.ktx.Firebase
 
 class SettingFragment : Fragment() {
     val db: FirebaseFirestore = Firebase.firestore
+    private var textViewNickname: TextView? = null
+    private var textViewEmail: TextView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,15 +25,39 @@ class SettingFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_setting, container, false)
 
-        val textViewLogout = view.findViewById<TextView>(R.id.textViewLogout)
-        textViewLogout.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+        textViewNickname = view.findViewById(R.id.textViewNickname)
+        textViewEmail = view.findViewById(R.id.textViewEmail)
 
-            val intent = Intent(requireContext(), IntroActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        }
+        loadUserData()
+        setupLogout(view)
 
         return view
+    }
+    private fun initializeViews(view: View) {
+        textViewNickname = view.findViewById(R.id.textViewNickname)
+        textViewEmail = view.findViewById(R.id.textViewEmail)
+    }
+
+    private fun loadUserData() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        currentUser?.let { user ->
+            db.collection("users").document(user.uid)
+                .get()
+                .addOnSuccessListener { document ->
+                    document?.let {
+                        textViewEmail?.text = it.getString("email")
+                        textViewNickname?.text = it.getString("nickname")
+                    }
+                }
+        }
+    }
+
+    private fun setupLogout(view: View) {
+        view.findViewById<TextView>(R.id.textViewLogout).setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(requireContext(), IntroActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            })
+        }
     }
 }
