@@ -75,7 +75,7 @@
                 android:background="@drawable/edittext_background"
                 android:ems="10"
                 android:hint="비밀번호를 입력하세요"
-                android:inputType="textVisiblePassword"
+                android:inputType="textPassword"
                 android:padding="16dp"
                 android:textColorHint="#CBD5E1" />
         </LinearLayout>
