@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.gta.view.fragments.HomeFragment"
+        android:label="홈" />
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.gta.view.fragments.MapFragment"
+        android:label="지도" />
+
+    <fragment
+        android:id="@+id/consultFragment"
+        android:name="com.example.gta.view.fragments.ConsultFragment"
+        android:label="상담" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.gta.view.fragments.SettingFragment"
+        android:label="설정" />
+
+</navigation>
