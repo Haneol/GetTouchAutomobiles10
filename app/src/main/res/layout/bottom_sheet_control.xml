@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@drawable/bottom_sheet_background">
+    android:padding="20dp">
 
     <View
         android:layout_width="40dp"
         android:layout_height="4dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="20dp"
-        android:background="#E0E0E0"/>
+        android:background="#E0E0E0" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,20 +56,22 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttonLock"
+                    style="@style/ToggleCardView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/card_background_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/ic_lock" />
 
                         <TextView
@@ -79,25 +81,26 @@
                             android:text="문 잠금"
                             android:textSize="12sp" />
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttonEngineOn"
+                    style="@style/ToggleCardView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:layout_marginHorizontal="20dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/card_background_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/ic_car_on" />
 
                         <TextView
@@ -110,20 +113,22 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttonUnlock"
+                    style="@style/ToggleCardView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/card_background_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/ic_unlock" />
 
                         <TextView
@@ -143,20 +148,22 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttonEngineOff"
+                    style="@style/ToggleCardView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/card_background_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/ic_car_off" />
 
                         <TextView
@@ -166,25 +173,26 @@
                             android:text="시동 끄기"
                             android:textSize="12sp" />
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttonLight"
+                    style="@style/ToggleCardView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:layout_marginHorizontal="20dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/card_background_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/ic_warning" />
 
                         <TextView
@@ -197,20 +205,22 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/buttonClarksion"
+                    style="@style/ToggleCardView"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/card_background_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/ic_clarksion" />
 
                         <TextView

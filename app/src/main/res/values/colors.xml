@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="unlock_red">#AD0638</color>
+    <color name="lock_green">#06AD38</color>
+    <color name="engine_green">#06AD38</color>
+    <color name="engine_red">#AD0638</color>
 </resources>
